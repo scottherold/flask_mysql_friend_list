@@ -1,0 +1,76 @@
+<!DOCTTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>PyMySQL</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h3 class="text-center">These are all of my friends</h3>
+            <div class="container">
+                <hr class="my-4">
+                {% for friend in friends %}
+                    <div class="row">
+                        <div class="col-sm text-primary font-weight-bold">
+                            First name:
+                        </div>
+                        <div class="col-sm font-weight-bold">
+                            {{ friend.first_name }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm text-primary font-weight-bold">
+                            Last name:
+                        </div>
+                        <div class="col-sm font-weight-bold">
+                            {{ friend.last_name }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm text-primary font-weight-bold">
+                            Occupation:
+                        </div>
+                        <div class="col-sm font-weight-bold">
+                            {{ friend.occupation }}
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                {% endfor %}
+            <h3 class="text-center">Add friend</h3>
+            <div class="container">
+                <form action='/create_friend', method='post'>
+                    <div class="row">
+                        <div class="col-sm text-primary font-weight-bold">
+                            <label for="first_name">First name</label>
+                        </div>
+                        <div class="col-sm">
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm text-primary font-weight-bold">
+                            <label for="last_name">Last name</label>
+                        </div>
+                        <div class="col-sm">
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm text-primary font-weight-bold">
+                            <label for="occupation">Occupation</label>
+                        </div>
+                        <div class="col-sm">
+                            <input type="text" class="form-control" id="occupation" name="occupation" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm offset-sm-10">
+                            <button type="submit" class="btn btn-primary text-align-right">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
